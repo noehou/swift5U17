@@ -7,16 +7,45 @@
 
 import UIKit
 
-@main
+import Alamofire
+import IQKeyboardManagerSwift
+
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+    
+    lazy var reachability: NetworkReachabilityManager? = {
+       return NetworkReachabilityManager(host: "http://app.u17.com")
+    }()
+    
+    var orientation: UIInterfaceOrientationMask = .portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.rootViewController = TabBarController()
+        window?.makeKeyAndVisible()
+        
+        setupBaseConfig()
         return true
     }
 
+    func setupBaseConfig() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        reachability?.listener = { status in
+            switch status {
+            case .reachable(.wwan):
+                UNoticeBar(config: UNoticeBarConfig(title:"")).show(duration: 2)
+            default:
+                break
+            }
+        }
+        reachability?.startListening()
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
