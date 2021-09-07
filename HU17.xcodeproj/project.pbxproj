@@ -46,6 +46,10 @@
 		3458652826E714460082EBFA /* HU17Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458652726E714460082EBFA /* HU17Tests.swift */; };
 		3458653326E714460082EBFA /* HU17UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458653226E714460082EBFA /* HU17UITests.swift */; };
 		3458654126E714B30082EBFA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3458654026E714B30082EBFA /* Podfile */; };
+		34737DDD26E763DA00BA068F /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737DDC26E763DA00BA068F /* BaseController.swift */; };
+		34737DDF26E7656200BA068F /* NaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737DDE26E7656200BA068F /* NaviController.swift */; };
+		34737DE126E765BB00BA068F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737DE026E765BB00BA068F /* TabBarController.swift */; };
+		34737DE426E76A0000BA068F /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737DE326E76A0000BA068F /* CommunityVC.swift */; };
 		92B79CAA91395415B19B76FF /* Pods_HU17.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B5CF0373E34BE188DFB736 /* Pods_HU17.framework */; };
 		D9A926144E294C1A151D9C2E /* Pods_HU17_HU17UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E084DE202B94377B0157B60E /* Pods_HU17_HU17UITests.framework */; };
 		F398219633D8EE0AC389C3E2 /* Pods_HU17Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2894CC18F151BB0A787061B9 /* Pods_HU17Tests.framework */; };
@@ -115,6 +119,10 @@
 		3458653226E714460082EBFA /* HU17UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HU17UITests.swift; sourceTree = "<group>"; };
 		3458653426E714460082EBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3458654026E714B30082EBFA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		34737DDC26E763DA00BA068F /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		34737DDE26E7656200BA068F /* NaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaviController.swift; sourceTree = "<group>"; };
+		34737DE026E765BB00BA068F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		34737DE326E76A0000BA068F /* CommunityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
 		4A3AE85103EDED0EA1758021 /* Pods-HU17-HU17UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HU17-HU17UITests.release.xcconfig"; path = "Target Support Files/Pods-HU17-HU17UITests/Pods-HU17-HU17UITests.release.xcconfig"; sourceTree = "<group>"; };
 		7E094D2D2EBF23EB87E84D75 /* Pods-HU17Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HU17Tests.debug.xcconfig"; path = "Target Support Files/Pods-HU17Tests/Pods-HU17Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A01300DFAE58B48923D67DC /* Pods-HU17-HU17UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HU17-HU17UITests.debug.xcconfig"; path = "Target Support Files/Pods-HU17-HU17UITests/Pods-HU17-HU17UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 		3458650F26E714430082EBFA /* HU17 */ = {
 			isa = PBXGroup;
 			children = (
+				34737DDA26E762E400BA068F /* Home */,
 				3437307F26E736FA00902112 /* Other */,
 				3437303826E7347300902112 /* API */,
 				3437303B26E7355100902112 /* Common */,
@@ -340,6 +349,33 @@
 				3458653426E714460082EBFA /* Info.plist */,
 			);
 			path = HU17UITests;
+			sourceTree = "<group>";
+		};
+		34737DDA26E762E400BA068F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				34737DE226E769E000BA068F /* CommunityVC */,
+				34737DDB26E762ED00BA068F /* Main */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		34737DDB26E762ED00BA068F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				34737DDC26E763DA00BA068F /* BaseController.swift */,
+				34737DDE26E7656200BA068F /* NaviController.swift */,
+				34737DE026E765BB00BA068F /* TabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		34737DE226E769E000BA068F /* CommunityVC */ = {
+			isa = PBXGroup;
+			children = (
+				34737DE326E76A0000BA068F /* CommunityVC.swift */,
+			);
+			path = CommunityVC;
 			sourceTree = "<group>";
 		};
 		68FB879822F1836B85D1285D /* Frameworks */ = {
@@ -608,13 +644,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3437307126E7355100902112 /* UIBarButtonItemExtension.swift in Sources */,
+				34737DDF26E7656200BA068F /* NaviController.swift in Sources */,
 				3437307C26E7355100902112 /* ParallaxHeader.swift in Sources */,
 				3437306326E7355100902112 /* UCollectionViewSectionBackgroundLayout.swift in Sources */,
 				3437307326E7355100902112 /* UIImageExtensions.swift in Sources */,
 				3437306926E7355100902112 /* LLSnakePageControl.swift in Sources */,
 				3437307226E7355100902112 /* UIDeviceExtension.swift in Sources */,
+				34737DDD26E763DA00BA068F /* BaseController.swift in Sources */,
 				3437307626E7355100902112 /* DictionaryExtension.swift in Sources */,
 				3437306F26E7355100902112 /* UIColorExtension.swift in Sources */,
+				34737DE426E76A0000BA068F /* CommunityVC.swift in Sources */,
 				3437308126E7373200902112 /* Global.swift in Sources */,
 				3437306B26E7355100902112 /* LLFilledPageControl.swift in Sources */,
 				3437306A26E7355100902112 /* LLCycleScrollViewCell.swift in Sources */,
@@ -629,6 +668,7 @@
 				3437303A26E734E400902112 /* Api.swift in Sources */,
 				3437306E26E7355100902112 /* ArrayExtensions.swift in Sources */,
 				3437307926E7355100902112 /* UHairPowder.swift in Sources */,
+				34737DE126E765BB00BA068F /* TabBarController.swift in Sources */,
 				3437307A26E7355100902112 /* ParallaxHeaderMode.swift in Sources */,
 				3437307B26E7355100902112 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				3437307D26E7355100902112 /* UNoticeBar.swift in Sources */,

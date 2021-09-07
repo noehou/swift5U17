@@ -36,15 +36,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-        reachability?.listener = { status in
+        reachability?.startListening { status in
             switch status {
-            case .reachable(.wwan):
-                UNoticeBar(config: UNoticeBarConfig(title:"")).show(duration: 2)
+            case .reachable(.cellular):
+                UNoticeBar(config: UNoticeBarConfig(title:"主人,检测到您正在使用移动数据")).show(duration: 2)
+            case .reachable(.ethernetOrWiFi):
+                UNoticeBar(config: UNoticeBarConfig(title:"主人,检测到您正在使用wifi")).show(duration: 2)
+            case .notReachable:
+                UNoticeBar(config: UNoticeBarConfig(title:"主人,检测到您当前无网络")).show(duration: 2)
             default:
                 break
             }
         }
-        reachability?.startListening()
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return orientation
     }
     // MARK: UISceneSession Lifecycle
 
@@ -62,4 +69,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension UIApplication {
+    // 4. 强制旋转屏幕
+    class func changeOrientationTo(landscapeRight: Bool) {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        if landscapeRight == true {
+            delegate.orientation = .landscapeRight
+            UIApplication.shared.supportedInterfaceOrientations(for: delegate.window)
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+        } else {
+            delegate.orientation = .portrait
+            UIApplication.shared.supportedInterfaceOrientations(for: delegate.window)
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        }
+    }
+}
+
 

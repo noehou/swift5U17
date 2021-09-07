@@ -70,7 +70,7 @@ func uLog<T>(_ message: T, file: String = #file, function: String = #function, l
 //MARK: Kingfisher
 extension Kingfisher where Base: ImageView {
     @discardableResult
-    public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageTask {
+    public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageResult {
         return setImage(with: URL(string: urlString ?? ""),
                         placeholder: placeholder,
                         options:[.transition(.fade(0.5))])
@@ -79,7 +79,7 @@ extension Kingfisher where Base: ImageView {
 
 extension Kingfisher where Base: Button {
     @discardableResult
-    public func setImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageTask {
+    public func setImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageResult {
         return setImage(with: URL(string: urlString ?? ""),
                         for: state,
                         placeholder: placeholder,
