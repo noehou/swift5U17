@@ -68,22 +68,35 @@ func uLog<T>(_ message: T, file: String = #file, function: String = #function, l
 }
 
 //MARK: Kingfisher
-extension Kingfisher where Base: ImageView {
+extension KingfisherWrapper where Base: KFCrossPlatformImageView {
     @discardableResult
-    public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageResult {
+    public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "normal_placeholder_h")) -> DownloadTask {
         return setImage(with: URL(string: urlString ?? ""),
-                        placeholder: placeholder,
-                        options:[.transition(.fade(0.5))])
+                        placeholder: placeholder,options:[.transition(.fade(0.5))])!
     }
 }
+//可以自定义一个延展,用起来更方便
+//extension KingfisherWrapper where Base: KFCrossPlatformImageView {
+//@discardableResult
+//public func setImage(urlString:String?, placeholder:Placeholder? = UIImage(named:"zhanwei")) -> DownloadTask? {
+//
+//return setImage(with: URL(string: urlString ?? ""),
+//
+//                        placeholder: placeholder,
+//
+//                        options:[.transition(.fade(0.5)), .processor(WebPProcessor.default), .cacheSerializer(WebPSerializer.default)])
+//
+//    }
+//
+//}
 
-extension Kingfisher where Base: Button {
+extension KingfisherWrapper where Base: KFCrossPlatformButton {
     @discardableResult
-    public func setImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "normal_placeholder_h")) -> RetrieveImageResult {
+    public func setImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "normal_placeholder_h")) -> DownloadTask {
         return setImage(with: URL(string: urlString ?? ""),
                         for: state,
                         placeholder: placeholder,
-                        options: [.transition(.fade(0.5))])
+                        options: [.transition(.fade(0.5))])!
         
     }
 }
